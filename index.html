@@ -15,5 +15,28 @@
         </tr>
 
     </table>
+
+    <script src="./web3.min.js"></script>
+    <script>
+        window.onload = function(){
+            updateBlocks();
+        }
+
+
+        // gets the latest 10 block numbers
+        async function updateBlocks(){
+          let web3 = new Web3(Web3.givenProvider);
+          let latestBlock = await web3.eth.getBlockNumber();
+          
+          for(var i =0; i < 10; i++){
+              let block = await web3.eth.getBlock(latestBlock - i);
+              printBlock(block);
+          }
+        }
+
+        function printBlock(block){
+          
+        }
+    </script>
 </body>
 </html>
